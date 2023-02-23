@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "86c11d86-8737-420a-abe4-45cd02f81a43",
+		"name": "servicio oauth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22273015"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/oauth/token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "angularapp",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "DLEMUS",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/user/buscar?username=DLEMUS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/buscar?username=DLEMUS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"buscar"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "DLEMUS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJETEVNVVMiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiSW5mb3JtYWNpb24gYWRpY2lvbmFsIjp7InVzZXJuYW1lIjoiRExFTVVTIiwicGFzc3dvcmQiOm51bGwsInN0YXR1cyI6bnVsbH0sImV4cCI6MTY3NzE2NzE2NywiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJqdGkiOiJlNTgwNmQzNy1iNmNmLTQ2NDMtYWQ0OC1mZDJkZDAwYTg5ZWYiLCJjbGllbnRfaWQiOiJhbmd1bGFyYXBwIn0.7gjbZsAJgRQiE5MmE9YrH9Ru0yoaP3jrxHToAt1_zII",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"names\":\"Christian Samuel\",\r\n    \"last_names\":\"Araque Salazar\",\r\n    \"identification\":\"1061778943\",\r\n    \"email\":\"cristiansamuel@hotmail.com\",\r\n    \"tipoId\":\"CC\",\r\n    \"names_column\":\"Christian Samuel Araque salazar\",\r\n    \"identification_column\":\"CC 1061778943\",\r\n    \"userDTO\":{\r\n    \"username\":\"Csamuel\",\r\n    \"password\":\"12345\",\r\n    \"status\":1\r\n    }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/guardar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"guardar"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "DLEMUS",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar todos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJETEVNVVMiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiSW5mb3JtYWNpb24gYWRpY2lvbmFsIjp7InVzZXJuYW1lIjoiRExFTVVTIiwicGFzc3dvcmQiOm51bGwsInN0YXR1cyI6bnVsbCwicGVyc29uYXNEYW8iOm51bGx9LCJleHAiOjE2NzcxNzIzMjUsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiZGE1Zjk0OWQtNjQ3MC00MWZhLWExMGYtOTBhZTg3ZThjMmQwIiwiY2xpZW50X2lkIjoiYW5ndWxhcmFwcCJ9.WTU3sbljSrazh8WgH8UHkUIW3n29z0RBzearwHG9edw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/buscartodos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"buscartodos"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "DLEMUS",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
